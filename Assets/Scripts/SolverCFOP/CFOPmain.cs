@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class CFOPmain : MonoBehaviour
@@ -9,11 +9,12 @@ public class CFOPmain : MonoBehaviour
     public CubeStatus Cubestatus;
     public bool       IsAuto;
 
-    [SerializeField] private TMP_Text _textSteps;
+    [SerializeField] private Text _textStepsTaken;
 
 
     private List<string> current_moves;
     private int          stepsLeft;
+    private int          stepsTaken;
     private SolverPLL    solverPLL;
     private SolverOLL    solverOLL;
     private SolverF2L    solverF2L;
@@ -70,36 +71,43 @@ public class CFOPmain : MonoBehaviour
             {
                 case "Cross":
                     current_moves = solverCross.Solve(status);
-                    stepsLeft = current_moves.Count;
+                    stepsLeft     = current_moves.Count;
+                    stepsTaken   += stepsLeft;
                     break;
 
                 case "F1L":
                     current_moves = solverF1L.Solve(status);
-                    stepsLeft = current_moves.Count;
+                    stepsLeft     = current_moves.Count;
+                    stepsTaken   += stepsLeft;
                     break;
 
                 case "F2L":
                     current_moves = solverF2L.Solve(status);
-                    stepsLeft = current_moves.Count;
+                    stepsLeft     = current_moves.Count;
+                    stepsTaken   += stepsLeft;
                     break;
 
                 case "OLL":
                     current_moves = solverOLL.Solve(status);
-                    stepsLeft = current_moves.Count;
+                    stepsLeft     = current_moves.Count;
+                    stepsTaken   += stepsLeft;
                     break;
 
                 case "PLL":
                     current_moves = solverPLL.Solve(status);
-                    stepsLeft = current_moves.Count;
+                    stepsLeft     = current_moves.Count;
+                    stepsTaken   += stepsLeft;
                     break;
 
                 case "Finished":
                     ToggleAuto();
                     break;
             }
+
+            _textStepsTaken.text = $"(Steps {stepsTaken})";
         }
 
-    }
+    }   // Solve()
 
 
     public void ToggleAuto()
@@ -120,7 +128,7 @@ public class CFOPmain : MonoBehaviour
             }
         }
 
-    }
+    }   // ToggleAuto()
 
 
 
@@ -232,15 +240,13 @@ public class CFOPmain : MonoBehaviour
         current_moves = new List<string>();
         IsAuto        = false;
         stepsLeft     = 0;
+        solverPLL     = new SolverPLL();
+        solverOLL     = new SolverOLL();
+        solverF2L     = new SolverF2L();
+        solverF1L     = new SolverF1L();
+        solverCross   = new SolverCross();
 
-        solverPLL   = new SolverPLL();
-        solverOLL   = new SolverOLL();
-        solverF2L   = new SolverF2L();
-        solverF1L   = new SolverF1L();
-        solverCross = new SolverCross();
-
-        //   (### / ###)
-    }
+    }   // Start()
 
 
     private void Update()
@@ -263,7 +269,7 @@ public class CFOPmain : MonoBehaviour
             }
         }
 
-    }
+    }   // Update()
 
 
 }   // class CFOPmain

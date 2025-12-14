@@ -1,37 +1,42 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System.Collections.Generic;
+
 
 public class CanvasRaycastBlocker : MonoBehaviour
 {
-    GraphicRaycaster m_Raycaster;
-    PointerEventData m_PointerEventData;
-    EventSystem m_EventSystem;
+    private EventSystem      _EventSystem;
+    private PointerEventData _PointerEventData;
+    private GraphicRaycaster _Raycaster;
 
-    void Start() {
-        //Fetch the Raycaster from the GameObject (the Canvas)
-        m_Raycaster = GetComponent<GraphicRaycaster>();
-        //Fetch the Event System from the Scene
-        m_EventSystem = GetComponent<EventSystem>();
-    }
 
-    void Update() {
 
-    }
+    private void Start()
+    {
+        _EventSystem = GetComponent<EventSystem>();
+        _Raycaster   = GetComponent<GraphicRaycaster>();
 
-    public bool isHittingUI() {
-        //Set up the new Pointer Event
-        m_PointerEventData = new PointerEventData(m_EventSystem);
-        //Set the Pointer Event Position to that of the mouse position
-        m_PointerEventData.position = Input.mousePosition;
+    }   // Start()
 
-        //Create a list of Raycast Results
-        List<RaycastResult> results = new List<RaycastResult>();
 
-        //Raycast using the Graphics Raycaster and mouse click position
-        m_Raycaster.Raycast(m_PointerEventData, results);
+    public bool isHittingUI()
+    {
+        // Set up the new Pointer Event.
+        _PointerEventData = new PointerEventData(_EventSystem);
+
+        // Set the Pointer Event Position to that of the mouse position.
+        _PointerEventData.position = Input.mousePosition;
+
+        // Create a list of Raycast Results.
+        List<RaycastResult> results = new();
+
+        // Raycast using the Graphics Raycaster and mouse click position.
+        _Raycaster.Raycast(_PointerEventData, results);
 
         return results.Count > 0;
-    }
-}
+
+    }   // isHittingUI()
+
+
+}   // class CanvasRaycastBlocker

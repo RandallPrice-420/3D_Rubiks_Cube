@@ -33,7 +33,7 @@ public class ControlMode: MonoBehaviour
     {
         if (mode == 0 && cubemover.isAvailable() &&
             controlShuffle.stepsLeft<=0 &&
-            cubeFormulas.stepsLeft <= 0 &&
+            cubeFormulas.StepsLeft <= 0 &&
             !cubemover.isLocked) {
             rubiksArrows.gameObject.SetActive(true);
         }
