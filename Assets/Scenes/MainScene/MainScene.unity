@@ -22702,10 +22702,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -29980,8 +29980,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 122.50003, y: 0}
-  m_SizeDelta: {x: -245, y: 0}
+  m_AnchoredPosition: {x: 130.45169, y: 0}
+  m_SizeDelta: {x: -260.9032, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1831818582
 MonoBehaviour:
@@ -30016,7 +30016,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '  (Steps 999)'
+  m_Text: '  (Step:  0)'
 --- !u!222 &1831818583
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30981,7 +30981,7 @@ MonoBehaviour:
   isLocked: 0
   rootCube: {fileID: 1719758393}
   text: {fileID: 4090471087125793274}
-  _textStepsTaken: {fileID: 0}
+  _textStepsTaken: {fileID: 1831818582}
 --- !u!114 &1918664305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31026,7 +31026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StepsLeft: 0
-  Cubemover: {fileID: 0}
+  Cubemover: {fileID: 1918664304}
 --- !u!114 &1918664308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31090,7 +31090,7 @@ MonoBehaviour:
   Cubemover: {fileID: 1918664304}
   Cubestatus: {fileID: 1918664309}
   IsAuto: 0
-  _textStepsTaken: {fileID: 0}
+  _textStepsTaken: {fileID: 1831818582}
 --- !u!114 &1918664312
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -104,7 +104,7 @@ public class CFOPmain : MonoBehaviour
                     break;
             }
 
-            _textStepsTaken.text = $"(Steps {stepsTaken})";
+            _textStepsTaken.text = $"(Step:  {stepsTaken})";
         }
 
     }   // Solve()
