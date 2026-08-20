@@ -10,4 +10,4 @@ public class SettingsControl : MonoBehaviour
     }   // Start()
 
 
-}   // class SettingsContro
+}   // class SettingsControl

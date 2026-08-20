@@ -131,8 +131,11 @@ public class SolverF1L
     private bool is_formula_1_FL(string status)
     {
         HashSet<string> centers = new HashSet<string> {
-            status[FKey.F5].ToString(), status[FKey.R5].ToString(), status[FKey.D5].ToString()
+            status[FKey.F5].ToString(),
+            status[FKey.R5].ToString(),
+            status[FKey.D5].ToString()
         };
+
         if (centers.Contains(status[FKey.F7].ToString()) &&
             centers.Contains(status[FKey.L9].ToString()) &&
             centers.Contains(status[FKey.D1].ToString()))
@@ -148,8 +151,11 @@ public class SolverF1L
     private bool is_formula_1_FR(string status)
     {
         HashSet<string> centers = new HashSet<string> {
-            status[FKey.F5].ToString(), status[FKey.R5].ToString(), status[FKey.D5].ToString()
+            status[FKey.F5].ToString(),
+            status[FKey.R5].ToString(),
+            status[FKey.D5].ToString()
         };
+
         if (centers.Contains(status[FKey.F9].ToString()) &&
             centers.Contains(status[FKey.R7].ToString()) &&
             centers.Contains(status[FKey.D3].ToString()))
@@ -165,8 +171,11 @@ public class SolverF1L
     private bool is_formula_1_BL(string status)
     {
         HashSet<string> centers = new HashSet<string> {
-            status[FKey.F5].ToString(), status[FKey.R5].ToString(), status[FKey.D5].ToString()
+            status[FKey.F5].ToString(),
+            status[FKey.R5].ToString(),
+            status[FKey.D5].ToString()
         };
+
         if (centers.Contains(status[FKey.B9].ToString()) &&
             centers.Contains(status[FKey.L7].ToString()) &&
             centers.Contains(status[FKey.D7].ToString()))
@@ -183,7 +192,9 @@ public class SolverF1L
     {
         HashSet<string> centers = new HashSet<string>
         {
-            status[FKey.F5].ToString(), status[FKey.R5].ToString(), status[FKey.D5].ToString()
+            status[FKey.F5].ToString(),
+            status[FKey.R5].ToString(),
+            status[FKey.D5].ToString()
         };
 
         if (centers.Contains(status[FKey.D9].ToString()) &&

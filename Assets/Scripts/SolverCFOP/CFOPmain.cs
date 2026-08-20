@@ -65,7 +65,7 @@ public class CFOPmain : MonoBehaviour
 
             // Lock the mover, and unlock when finished.
             string stage = FindCurrentStage(status);
-            //print(stage
+            //print(stage);
 
             switch (stage)
             {
@@ -118,6 +118,7 @@ public class CFOPmain : MonoBehaviour
             Cubemover.isLocked = false;
             current_moves      = new List<string>();
             stepsLeft          = 0;
+            stepsTaken         = 0;
         }
         else
         {

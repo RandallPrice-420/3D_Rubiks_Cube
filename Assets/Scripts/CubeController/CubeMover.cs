@@ -152,6 +152,7 @@ public class CubeMover : MonoBehaviour
         if (speedMode >= speeds.Count) speedMode = 0;
 
         text.text = "Rotation Speed:  " + ((int)(speeds[speedMode] * 10)).ToString();
+
     }
 
 
@@ -210,7 +211,9 @@ public class CubeMover : MonoBehaviour
                 }
             }
         }
+
         return result;
+
     }
 
 
@@ -233,6 +236,7 @@ public class CubeMover : MonoBehaviour
 
             rotation = axis * _orientation * speeds[speedMode];
         }
+
     }
 
 

@@ -53,6 +53,7 @@ public class SolverPLL
     public List<string> Solve(string status)
     {
         List<string> result = new List<string>();
+
         if (isAa(status))
         {
             result = formulaAa;
@@ -143,6 +144,7 @@ public class SolverPLL
         }
 
         return result;
+
     }
 
 

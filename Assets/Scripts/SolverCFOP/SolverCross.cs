@@ -240,7 +240,6 @@ public class SolverCross
     }
 
 
-
     bool isL(string status)
     {
         char c0 = status[FKey.L8];

@@ -121,15 +121,15 @@ public class SolverOLL
     int[] f57;
 
     public SolverOLL() {
-        formula1 = Translator.translate("R U2 R2 F R F_ U2 R_ F R F_");
-        formula2 = Translator.translate("r U r_ U2 r U2 R_ U2 R U_ r_");
-        formula3 = Translator.translate("r_ R2 U R_ U r U2 r_ U M_");
-        formula4 = Translator.translate("M U_ r U2 r_ U_ R U_ R_ M_");
-        formula5 = Translator.translate("l_ U2 L U L_ U l");
-        formula6 = Translator.translate("r U2 R_ U_ R U_ r_");
-        formula7 = Translator.translate("r U R_ U R U2 r_");
-        formula8 = Translator.translate("l_ U_ L U_ L_ U2 l");
-        formula9 = Translator.translate("R U R_ U_ R_ F R2 U R_ U_ F_");
+        formula1  = Translator.translate("R U2 R2 F R F_ U2 R_ F R F_");
+        formula2  = Translator.translate("r U r_ U2 r U2 R_ U2 R U_ r_");
+        formula3  = Translator.translate("r_ R2 U R_ U r U2 r_ U M_");
+        formula4  = Translator.translate("M U_ r U2 r_ U_ R U_ R_ M_");
+        formula5  = Translator.translate("l_ U2 L U L_ U l");
+        formula6  = Translator.translate("r U2 R_ U_ R U_ r_");
+        formula7  = Translator.translate("r U R_ U R U2 r_");
+        formula8  = Translator.translate("l_ U_ L U_ L_ U2 l");
+        formula9  = Translator.translate("R U R_ U_ R_ F R2 U R_ U_ F_");
         formula10 = Translator.translate("R U R_ U R_ F R F_ R U2 R_");
         formula11 = Translator.translate("r U R_ U R_ F R F_ R U2 r_");
         formula12 = Translator.translate("M_ R_ U_ R U_ R_ U2 R U_ R r_");
@@ -238,25 +238,27 @@ public class SolverOLL
         f57 = new int[] { FKey.U1, FKey.U3, FKey.U4, FKey.U6, FKey.U7, FKey.U9, FKey.F2, FKey.B2 };
     }
 
-    public List<string> Solve(string status) {
+    public List<string> Solve(string status)
+    {
         List<string> result = new List<string>();
-        if (valid(status, f1)) {
+
+        if        (valid(status,  f1)) {
             result = formula1;
-        } else if (valid(status, f2)) {
+        } else if (valid(status,  f2)) {
             result = formula2;
-        } else if (valid(status, f3)) {
+        } else if (valid(status,  f3)) {
             result = formula3;
-        } else if (valid(status, f4)) {
+        } else if (valid(status,  f4)) {
             result = formula4;
-        } else if (valid(status, f5)) {
+        } else if (valid(status,  f5)) {
             result = formula5;
-        } else if (valid(status, f6)) {
+        } else if (valid(status,  f6)) {
             result = formula6;
-        } else if (valid(status, f7)) {
+        } else if (valid(status,  f7)) {
             result = formula7;
-        } else if (valid(status, f8)) {
+        } else if (valid(status,  f8)) {
             result = formula8;
-        } else if (valid(status, f9)) {
+        } else if (valid(status,  f9)) {
             result = formula9;
         } else if (valid(status, f10)) {
             result = formula10;
@@ -357,15 +359,24 @@ public class SolverOLL
         } else {
             result = new List<string>() { "U_L" };
         }
+
         return result;
     }
 
-    bool valid(string status, int[] upfaces) {
-        foreach (int i in upfaces) {
-            if (status[FKey.U5] != status[i]) {
+
+    bool valid(string status, int[] upfaces)
+    {
+        foreach (int i in upfaces)
+        {
+            if (status[FKey.U5] != status[i])
+            {
                 return false;
             }
         }
+
         return true;
+
     }
+
+
 }
