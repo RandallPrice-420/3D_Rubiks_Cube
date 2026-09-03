@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class MainSceneManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public void BackToMenu()
     {
@@ -26,4 +26,4 @@ public class MainSceneManager : MonoBehaviour
     }   // QuitGame()
 
 
-}   // class MainSceneManager
+}   // class GameManager

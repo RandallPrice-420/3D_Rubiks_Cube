@@ -18,20 +18,22 @@ public class DialogButtons
 
 public class DialogBox : Singleton<DialogBox>
 {
+    public DialogButtons.ButtonPanel PanelButtons;
+
+    public string Header  = "( header )";
+    public string Message = "( message )";
+
+
+
+    [SerializeField] private Button     _buttonNewGame;
+    [SerializeField] private Button     _buttonQuit;
+    [SerializeField] private Button     _buttonSettings;
     [SerializeField] private GameObject _panelDialog;
     [SerializeField] private GameObject _panelOk;
     [SerializeField] private GameObject _panelOkCancel;
     [SerializeField] private GameObject _panelYesNo;
     [SerializeField] private TMP_Text   _textHeader;
     [SerializeField] private TMP_Text   _textMessage;
-    [SerializeField] private Button     _buttonNewGame;
-    [SerializeField] private Button     _buttonQuit;
-    [SerializeField] private Button     _buttonSettings;
-
-    public DialogButtons.ButtonPanel PanelButtons;
-
-    public string Header  = "( header )";
-    public string Message = "( message )";
 
 
 
@@ -69,17 +71,9 @@ public class DialogBox : Singleton<DialogBox>
 
         switch (PanelButtons)
         {
-            case DialogButtons.ButtonPanel.OK:
-                _panelOk.SetActive(true);
-                break;
-
-            case DialogButtons.ButtonPanel.OkCancel:
-                _panelOkCancel.SetActive(true);
-                break;
-
-            case DialogButtons.ButtonPanel.YesNo:
-                _panelYesNo.SetActive(true);
-                break;
+            case DialogButtons.ButtonPanel.OK:       _panelOk.SetActive(true);       break;
+            case DialogButtons.ButtonPanel.OkCancel: _panelOkCancel.SetActive(true); break;
+            case DialogButtons.ButtonPanel.YesNo:    _panelYesNo.SetActive(true);    break;
         }
 
     }   // Start()

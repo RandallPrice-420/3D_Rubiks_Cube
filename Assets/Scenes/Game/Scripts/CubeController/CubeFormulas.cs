@@ -24,9 +24,9 @@ public class CubeFormulas : MonoBehaviour
 
     public void runFormula(List<string> my_formula)
     {
-        if (StepsLeft <= 0 && !Cubemover.isLocked)
+        if (StepsLeft <= 0 && !Cubemover.IsLocked)
         {
-            Cubemover.isLocked = true;
+            Cubemover.IsLocked = true;
             current_formula    = my_formula.ToArray();
             StepsLeft          = current_formula.Length;
         }
@@ -36,15 +36,15 @@ public class CubeFormulas : MonoBehaviour
 
     public void runFormula_2_L()
     {
-        if (StepsLeft <= 0 && !Cubemover.isLocked)
+        if (StepsLeft <= 0 && !Cubemover.IsLocked)
         {
-            Cubemover.isLocked = true;
+            Cubemover.IsLocked = true;
             current_formula    = formula_2_L;
             StepsLeft          = current_formula.Length;
 
             if (StepsLeft == 0)
             {
-                Cubemover.isLocked = false;
+                Cubemover.IsLocked = false;
             }
         }
 
@@ -53,9 +53,9 @@ public class CubeFormulas : MonoBehaviour
 
     public void runFormula_2_R()
     {
-        if (StepsLeft <= 0 && !Cubemover.isLocked)
+        if (StepsLeft <= 0 && !Cubemover.IsLocked)
         {
-            Cubemover.isLocked = true;
+            Cubemover.IsLocked = true;
             current_formula    = formula_2_R;
             StepsLeft          = current_formula.Length;
         }
@@ -65,9 +65,9 @@ public class CubeFormulas : MonoBehaviour
 
     public void runFormula_3_cross_L()
     {
-        if (StepsLeft <= 0 && !Cubemover.isLocked)
+        if (StepsLeft <= 0 && !Cubemover.IsLocked)
         {
-            Cubemover.isLocked = true;
+            Cubemover.IsLocked = true;
             current_formula    = formula_3_cross_L;
             StepsLeft          = current_formula.Length;
         }
@@ -75,9 +75,9 @@ public class CubeFormulas : MonoBehaviour
 
     public void runFormula_3_fish_L()
     {
-        if (StepsLeft <= 0 && !Cubemover.isLocked)
+        if (StepsLeft <= 0 && !Cubemover.IsLocked)
         {
-            Cubemover.isLocked = true;
+            Cubemover.IsLocked = true;
             current_formula    = formula_3_fish_L;
             StepsLeft          = current_formula.Length;
         }
@@ -87,9 +87,9 @@ public class CubeFormulas : MonoBehaviour
 
     public void runFormula_3_fish_R()
     {
-        if (StepsLeft <= 0 && !Cubemover.isLocked)
+        if (StepsLeft <= 0 && !Cubemover.IsLocked)
         {
-            Cubemover.isLocked = true;
+            Cubemover.IsLocked = true;
             current_formula    = formula_3_fish_R;
             StepsLeft          = current_formula.Length;
         }
@@ -99,9 +99,9 @@ public class CubeFormulas : MonoBehaviour
 
     public void runFormula_3_corner()
     {
-        if (StepsLeft <= 0 && !Cubemover.isLocked)
+        if (StepsLeft <= 0 && !Cubemover.IsLocked)
         {
-            Cubemover.isLocked = true;
+            Cubemover.IsLocked = true;
             current_formula    = formula_3_corner;
             StepsLeft          = current_formula.Length;
         }
@@ -111,9 +111,9 @@ public class CubeFormulas : MonoBehaviour
 
     public void runFormula_3_triple_L()
     {
-        if (StepsLeft <= 0 && !Cubemover.isLocked)
+        if (StepsLeft <= 0 && !Cubemover.IsLocked)
         {
-            Cubemover.isLocked = true;
+            Cubemover.IsLocked = true;
             current_formula    = formula_3_triple_L;
             StepsLeft          = current_formula.Length;
         }
@@ -123,9 +123,9 @@ public class CubeFormulas : MonoBehaviour
 
     public void runFormula_3_triple_R()
     {
-        if (StepsLeft <= 0 && !Cubemover.isLocked)
+        if (StepsLeft <= 0 && !Cubemover.IsLocked)
         {
-            Cubemover.isLocked = true;
+            Cubemover.IsLocked = true;
             current_formula    = formula_3_triple_R;
             StepsLeft          = current_formula.Length;
         }
@@ -135,9 +135,9 @@ public class CubeFormulas : MonoBehaviour
 
     public void runFormula_3_quadruple()
     {
-        if (StepsLeft <= 0 && !Cubemover.isLocked)
+        if (StepsLeft <= 0 && !Cubemover.IsLocked)
         {
-            Cubemover.isLocked = true;
+            Cubemover.IsLocked = true;
             current_formula    = formula_3_quadruple;
             StepsLeft          = current_formula.Length;
         }
@@ -186,16 +186,16 @@ public class CubeFormulas : MonoBehaviour
     {
         if (StepsLeft > 0)
         {
-            if (Cubemover.isAvailable())
+            if (Cubemover.IsAvailable())
             {
                 string code = current_formula[current_formula.Length - StepsLeft];
                 StepsLeft  -= 1;
 
-                Cubemover.move(code);
+                Cubemover.Move(code);
 
                 if (StepsLeft == 0)
                 {
-                    Cubemover.isLocked = false;
+                    Cubemover.IsLocked = false;
                     current_formula    = null;
                 }
             }

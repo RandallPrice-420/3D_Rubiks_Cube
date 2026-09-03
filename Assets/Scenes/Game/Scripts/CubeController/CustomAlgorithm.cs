@@ -5,32 +5,35 @@ using UnityEngine.UI;
 
 public class CustomAlgorithm : MonoBehaviour
 {
-    public ControlBadAlgoTip controlBadAlgoTip;
-    public CubeMover         cubemover;
-    public InputField        inputField;
-    public int               stepsLeft;
-
-    private string[]        current_formula;
-    private HashSet<string> validMoves;
+    public ControlBadAlgoTip ControlBadAlgoTip;
+    public CubeMover         Cubemover;
+    public InputField        InputField;
+    public int               StepsLeft;
 
 
-    public void clearInput()
+
+    private string[]        _current_formula;
+    private HashSet<string> _validMoves;
+
+
+
+    public void ClearInput()
     {
-        inputField.text = "";
+        InputField.text = "";
 
     }   // clearInput()
 
 
-    public void revInput()
+    public void RevInput()
     {
-        string[] moves  = inputField.text.Trim().Split(' ');
+        string[] moves  = InputField.text.Trim().Split(' ');
         string[] moves_ = new string[moves.Length];
 
         for (int i = 0; i < moves.Length; i++)
         {
             string m = moves[moves.Length - 1 - i];
 
-            if (m[m.Length - 1] == '_' || m[m.Length - 1] == '\'')
+            if (m[^1] == '_' || m[^1] == '\'')
             {
                 moves_[i] = m.Substring(0, m.Length - 1);
             }
@@ -44,24 +47,26 @@ public class CustomAlgorithm : MonoBehaviour
             }
         }
 
-        inputField.text = string.Join(" ", moves_);
+        InputField.text = string.Join(" ", moves_);
+
         return;
 
-    }   // revInput()
+    }   // RevInput()
 
 
-    public void runInput()
+    public void RunInput()
     {
-        string[]     moves    = inputField.text.Replace("'", "_").Split(' ');
-        List<string> moveList = new List<string>();
+        string[]     moves    = InputField.text.Replace("'", "_").Split(' ');
+        List<string> moveList = new();
 
         foreach (string m in moves)
         {
             if (m.Length == 0) continue;
 
-            if (!validMoves.Contains(m))
+            if (!_validMoves.Contains(m))
             {
-                controlBadAlgoTip.setTimer(3);
+                ControlBadAlgoTip.setTimer(3);
+
                 return;
             }
             else
@@ -73,11 +78,11 @@ public class CustomAlgorithm : MonoBehaviour
         moveList = Translator.translate(moveList);
         moves = moveList.ToArray();
 
-        if (!cubemover.isLocked && moves.Length > 0)
+        if ((!Cubemover.IsLocked) && (moves.Length > 0))
         {
-            cubemover.isLocked = true;
-            current_formula    = moves;
-            stepsLeft          = moves.Length;
+            Cubemover.IsLocked = true;
+            _current_formula   = moves;
+            StepsLeft          = moves.Length;
             // clearInput();
         }
 
@@ -89,7 +94,7 @@ public class CustomAlgorithm : MonoBehaviour
 
     private void Start()
     {
-        validMoves = new HashSet<string>
+        _validMoves = new HashSet<string>
         {
             "x", "x_", "x2", "y", "y_", "y2", "z", "z_", "z2",
             "U", "U_", "U2", "R", "R_", "R2", "F", "F_", "F2",
@@ -104,19 +109,19 @@ public class CustomAlgorithm : MonoBehaviour
 
     private void Update()
     {
-        if (stepsLeft > 0)
+        if (StepsLeft > 0)
         {
-            if (cubemover.isAvailable())
+            if (Cubemover.IsAvailable())
             {
-                string code = current_formula[current_formula.Length - stepsLeft];
-                stepsLeft  -= 1;
+                string code = _current_formula[_current_formula.Length - StepsLeft];
+                StepsLeft  -= 1;
 
-                cubemover.move(code);
+                Cubemover.Move(code);
 
-                if (stepsLeft <= 0)
+                if (StepsLeft <= 0)
                 {
-                    cubemover.isLocked = false;
-                    current_formula    = null;
+                    Cubemover.IsLocked = false;
+                    _current_formula    = null;
                 }
             }
         }

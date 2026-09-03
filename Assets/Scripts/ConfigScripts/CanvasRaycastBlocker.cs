@@ -20,7 +20,7 @@ public class CanvasRaycastBlocker : MonoBehaviour
     }   // Start()
 
 
-    public bool isHittingUI()
+    public bool IsHittingUI()
     {
         // Set up the new Pointer Event.
         _PointerEventData = new PointerEventData(_EventSystem);

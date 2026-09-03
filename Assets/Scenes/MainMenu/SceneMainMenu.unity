@@ -15157,19 +15157,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c005035bf88378d4489bfed7985e92c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PanelButtons: 0
+  Header: Not Ready
+  Message: This feature is not ready yet,<br><color=red>but it will be coming soon</color>.<br><br>So
+    stay tuned!
+  _buttonNewGame: {fileID: 583543465}
+  _buttonQuit: {fileID: 353352051}
+  _buttonSettings: {fileID: 1051724193}
   _panelDialog: {fileID: 819628322}
   _panelOk: {fileID: 697259391}
   _panelOkCancel: {fileID: 1911789620}
   _panelYesNo: {fileID: 216983247}
   _textHeader: {fileID: 172281443}
   _textMessage: {fileID: 201622031}
-  _buttonNewGame: {fileID: 583543465}
-  _buttonQuit: {fileID: 353352051}
-  _buttonSettings: {fileID: 1051724193}
-  PanelButtons: 0
-  Header: Not Ready
-  Message: This feature is not ready yet,<br><color=red>but it will be coming soon</color>.<br><br>So
-    stay tuned!
 --- !u!1 &1256577846
 GameObject:
   m_ObjectHideFlags: 0
